@@ -49,6 +49,9 @@ ALLOWED_HOSTS = [h for h in os.environ.get("ALLOWED_HOSTS", "").split(",") if h]
 
 NASA_API_KEY = os.environ["NASA_API_KEY"]
 
+LOGIN_REDIRECT_URL = "apod:home"
+LOGOUT_REDIRECT_URL = "apod:home"
+
 
 # Application definition
 

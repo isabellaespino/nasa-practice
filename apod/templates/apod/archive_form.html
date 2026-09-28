@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}View a past date - NASA APOD{% endblock %}
+
+{% block content %}
+  <h1>View a past date</h1>
+  <form action="{% url 'apod:archive_form' %}" method="get">
+    <label for="date">Date</label>
+    <input type="date" id="date" name="date" max="{{ max_date }}" required>
+    <button type="submit">View</button>
+  </form>
+{% endblock %}
