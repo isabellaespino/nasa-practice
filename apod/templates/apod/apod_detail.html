@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{% if entry %}{{ entry.title }}{% else %}NASA APOD{% endif %}{% endblock %}
+
+{% block content %}
+  {% if error %}
+    <p>{{ error }}</p>
+  {% elif entry %}
+    <h1>{{ entry.title }}</h1>
+    <p>{{ entry.date }}</p>
+
+    {% if entry.media_type == "video" %}
+      <iframe src="{{ entry.url }}" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+    {% else %}
+      <img src="{{ entry.url }}" alt="{{ entry.title }}" style="max-width: 100%;">
+    {% endif %}
+
+    {% if entry.copyright %}
+      <p><small>Copyright: {{ entry.copyright }}</small></p>
+    {% endif %}
+
+    <p>{{ entry.explanation }}</p>
+  {% endif %}
+{% endblock %}
